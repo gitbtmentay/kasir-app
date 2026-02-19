@@ -87,6 +87,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
+      alert(JSON.stringify({ username, password }))
       const response = await fetch(`${API_URL}/auth/login/`, {
         method: 'POST',
         headers: {
@@ -94,6 +95,7 @@ export const AuthProvider = ({ children }) => {
         },
         body: JSON.stringify({ username, password }),
       });
+      alert(`${API_URL}/auth/login/`)
 
       const data = await response.json();
 
@@ -170,4 +172,5 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
+
 };
